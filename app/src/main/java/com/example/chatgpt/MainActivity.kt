@@ -8,7 +8,6 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowManager
 import android.webkit.WebResourceRequest
@@ -19,7 +18,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.chatgpt.databinding.ActivityMainBinding
 
 class MainActivity : Activity() {
-    val userAgent =
+    private val userAgent =
         "Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.5615.135 Mobile Safari/537.36"
     private val chatUrl = "https://chat.openai.com/"
     private lateinit var binding: ActivityMainBinding
@@ -48,8 +47,8 @@ class MainActivity : Activity() {
 
             }
         }
-//        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-//        window.statusBarColor = Color.parseColor("#343541")
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)     // to match system bar with chatgpt's background
+        window.statusBarColor = Color.parseColor("#343541")
 
         webView.settings.userAgentString = userAgent
         webView.settings.domStorageEnabled = true
